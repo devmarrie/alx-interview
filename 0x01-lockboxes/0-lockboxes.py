@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Check if boxes can be opened or not"""
+
+
 def canUnlockAll(boxes):
     """determines if all the boxes can be opened or not
     Returns:
@@ -16,5 +18,5 @@ def canUnlockAll(boxes):
             keys = boxes[box]
             for key in keys:
                 if key < n:
-                  stacked.append(key)
+                    stacked.append(key)
     return len(visited) == n
