@@ -10,18 +10,17 @@ def minOperations(n):
     """
     if n < 1:
         return 0
-    
+
     operations = 0
     i = 2
-    
+
     while i <= math.sqrt(n):
         if n % i == 0:
             operations += i
             n //= i
         else:
             i += 1
-    
-    operations += n
-    
-    return operations
 
+    operations += n
+
+    return operations
