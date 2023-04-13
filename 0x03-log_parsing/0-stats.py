@@ -8,21 +8,20 @@ import sys
 total_size = 0
 # counts the status code per code
 code_count = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+items = sys.stdin.readlines()
 
 try:
-    """we use try to catchthe keyboard interrupt
-       starting from the first line onwards.
-    """
-    for i, line in enumerate(sys.stdin, start=1):
+    for i, line in enumerate(items, start=1):
+        """we use try to catch the keyboard interrupt
+           starting from the first line onwards.
+       """
         try:
             """Check the expeccted format
             - removes urequired values
             """
-            ip_adress, _, _, date, _, request, status_code, file_size = (
-                line.strip().split()
-            )
-            status_code = int(status_code)
-            file_size = int(file_size)
+            new = line.strip().split()
+            status_code = int(new[7])
+            file_size = int(new[8])
         except ValueError:
             continue
         total_size += file_size
