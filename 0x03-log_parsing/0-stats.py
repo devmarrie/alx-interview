@@ -33,6 +33,7 @@ try:
             for key, value in sorted(code_count.items()):
                 if value > 0:
                     print(f'{key}: {value}')
+            print()
 
 except KeyboardInterrupt:
     print(f'File size:{total_size}')
