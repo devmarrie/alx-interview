@@ -18,7 +18,9 @@ try:
             """Check the expeccted format
             - removes urequired values
             """
-            ip_adress, _, _, date, _, request, status_code, file_size = line.strip().split()
+            ip_adress, _, _, date, _, request, status_code, file_size = (
+                line.strip().split()
+            )
             status_code = int(status_code)
             file_size = int(file_size)
         except ValueError:
