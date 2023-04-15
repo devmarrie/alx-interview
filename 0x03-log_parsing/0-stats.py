@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """
-This script takes the logs of an input and 
+This script takes the logs of an input and
 parses it as the standard output.
 input:
     <IP Address> -
     [<date>] "GET /projects/260 HTTP/1.1"
     <status code> <file size>
 """
-
 import sys
+
 
 code_count = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 total_size = 0
@@ -29,7 +29,8 @@ try:
             code_count[status_code] += 1
             if i % 10 == 0:
                 """
-                Print the file size and the count of status codes after every 10 lines.
+                   Print the file size and the count of status codes
+                   after every 10 lines.
                 """
                 print(f'File size:{total_size}')
                 for key, value in sorted(code_count.items()):
@@ -43,7 +44,8 @@ try:
 
 except KeyboardInterrupt:
     """
-    If a keyboard interrupt occurs, print the file size and the count of status codes.
+       If a keyboard interrupt occurs,
+       print the file size and the count of status codes.
     """
     print(f'File size:{total_size}')
     for key, value in sorted(code_count.items()):
