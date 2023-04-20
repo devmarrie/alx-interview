@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
 Determines if a given data set represents a valid UTF-8 encoding.
-param data: 
+param data:
           A list of integers representing 1 byte of data each
-return: 
+return:
         True if data is a valid UTF-8 encoding, else False
 """
 
