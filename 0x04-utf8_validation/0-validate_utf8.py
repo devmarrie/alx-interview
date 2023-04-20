@@ -1,13 +1,16 @@
 #!/usr/bin/python3
 """
-UTF-8 Validation
-determines if a given data set represents
-a valid UTF-8 encoding.
+Determines if a given data set represents a valid UTF-8 encoding.
+param data: 
+          A list of integers representing 1 byte of data each
+return: 
+        True if data is a valid UTF-8 encoding, else False
 """
 
 
 def validUTF8(data):
     """
+    How many bytes are remaining
     Args:
         data
     Return:
