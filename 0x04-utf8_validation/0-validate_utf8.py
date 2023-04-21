@@ -11,6 +11,7 @@ return:
 def validUTF8(data):
     """
     How many bytes are remaining
+    rem_byte == 0 means we are on the first character 
     Args:
         data
     Return:
@@ -28,7 +29,7 @@ def validUTF8(data):
             elif i >> 7 == 0b1:
                 return False
         else:
-            if rem_byte >> 6 != 0b01:
+            if i >> 6 != 0b01:
                 return False
             rem_byte -= 1
-        return rem_byte == 0
+    return rem_byte == 0
