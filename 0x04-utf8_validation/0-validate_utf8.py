@@ -19,6 +19,8 @@ def validUTF8(data):
     """
     rem_byte = 0
     for i in data:
+        if i > 256:
+            return False
         if rem_byte == 0:
             if i >> 5 == 0b110:
                 rem_byte = 1
