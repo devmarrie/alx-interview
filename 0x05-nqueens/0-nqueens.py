@@ -13,65 +13,50 @@ def is_valid(board, row, col):
     """
 
     for i in range(col):
-        if board[row][i] == 1:
+        if board[i] == row or \
+           board[i] == row - col + i or \
+           board[i] == row + col - i:
             return False
-    #Check diagonally to the left 
-    k = row
-    j = col
-    while k >= 0 and j >= 0:
-        if board[k][j] == 1:
-            return False
-        k -= 1
-        j -= 1
 
-    k = row
-    j = col
-    #Lower diagonal
-    while k < len(board) and j > col > 0:
-        if board[k][j] == 1:
-            return False
-        k += 1
-        j -= 1
     return True
 
-def chess():
+def solve_n_queens(n, board, col, solutions):
+    if col == n:
+        solutions.append(board[:])
+        return
+
+    for row in range(n):
+        if is_valid(board, row, col):
+            board[col] = row
+            solve_n_queens(n, board, col+1, solutions)
+
+def n_queens():
     """
-    Returns an list of lists 
+    Returns a list of lists
     containing the [row,col]
     with the queen given n values
     """
-    solution = []
-    nqueens = [] #Already placed queens
-    row, col = 0
-    n = sys.argv[2]
+    solutions = []
     
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
-        
-    if not isinstance(n, int):
+
+    try:
+        n = int(sys.argv[1])
+    except ValueError:
         print("N must be a number")
         sys.exit(1)
     
     if n < 4:
         print("N must be at least 4")
         sys.exit(1)
+        
+    board = [-1] * n
+    solve_n_queens(n, board, 0, solutions)
 
-    for _ in range(n):
-        if is_valid(nqueens, row, col):
-            nqueens.append(row, col)
-        return solution.append(nqueens)
+    for solution in solutions:
+        print([[i, solution[i]] for i in range(n)])
 
 if __name__ == '__main__':
-    chess()
-    
-    
-    
-
-    
-    
-
-    
-
-
-
+    n_queens()
