@@ -5,28 +5,6 @@ N non-attacking queens on an N×N chessboard
 """
 import sys
 
-def chess(n):
-    """
-    Returns an list of lists 
-    containing the [row,col]
-    with the queen given n values
-    """
-    solution = []
-    nqueens = [] #Already placed queens
-    row, col = 0
-    
-    if len(sys.argv) != 2:
-        print("Usage: nqueens N")
-        sys.exit(1)
-        
-    if not isinstance(n, int):
-        print("N must be a number")
-        sys.exit(1)
-    
-    if n < 4:
-        print("N must be at least 4")
-        sys.exit(1)
-
 def is_valid(board, row, col):
     """
     Checking if two queens are in the same position
@@ -55,7 +33,37 @@ def is_valid(board, row, col):
         k += 1
         j -= 1
     return True
+
+def chess():
+    """
+    Returns an list of lists 
+    containing the [row,col]
+    with the queen given n values
+    """
+    solution = []
+    nqueens = [] #Already placed queens
+    row, col = 0
+    n = sys.argv[2]
     
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
+        
+    if not isinstance(n, int):
+        print("N must be a number")
+        sys.exit(1)
+    
+    if n < 4:
+        print("N must be at least 4")
+        sys.exit(1)
+
+    for _ in range(n):
+        if is_valid(nqueens, row, col):
+            nqueens.append(row, col)
+        return solution.append(nqueens)
+
+if __name__ == '__main__':
+    chess()
     
     
     
