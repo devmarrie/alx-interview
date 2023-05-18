@@ -6,7 +6,7 @@ to meet a given amount total
 """
 
 
-def makeChange(coins, total):
+def makeChange(coins: int, total: int):
     """
     Return: fewest number of coins needed to meet total
             If total is 0 or less, return 0
