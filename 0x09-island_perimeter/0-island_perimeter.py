@@ -3,6 +3,7 @@
 Island perimeter
 """
 
+
 def island_perimeter(grid):
     """
     Takes in square cells and uses them
