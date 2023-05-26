@@ -13,7 +13,6 @@ def island_perimeter(grid):
     """
     rows = len(grid)
     cols = len(grid[0])
-    island_count = 0
     perimeter = 0
     if rows > 100 or cols > 100:
         raise ValueError("Rows or columns exceeds the expected value")
