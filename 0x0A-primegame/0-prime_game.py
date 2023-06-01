@@ -1,4 +1,15 @@
+#!/usr/bin/python3
+"""
+   Working out prime numbers
+"""
+
+
 def isWinner(x, nums):
+    """
+    takes in rounds and
+    a list of nums
+    returns who won
+    """
     marria = 0
     ben = 0
     playing = []
