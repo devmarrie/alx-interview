@@ -18,16 +18,15 @@ def isWinner(x, nums):
     look = {}
     for n in nums:
         playing.append(n)
-    
+
     for y in playing:
         for j in range(1, y + 1):
             if y not in look:
                 look[y] = []
             look[y].append(j)
-        #print(look)
-        
+
     if count <= x:
-        for play in  playing:
+        for play in playing:
             vals = look[play]
             count += 1
             for num in vals:
@@ -37,19 +36,15 @@ def isWinner(x, nums):
                             break
                         else:
                             prime.append(num)
-                            #print(num
-    
+
     for weh in prime:
         odd_index = prime.index(weh)
         if (odd_index % 2) != 0:
             marria += 1
         else:
             ben += 1
-    
+
     if marria > ben:
-        print ('Maria')
+        return ('Maria')
     else:
-        print ('Ben')
-
-
-isWinner(3, [4, 5, 1])
+        return ('Ben')
