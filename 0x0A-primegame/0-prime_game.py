@@ -16,11 +16,13 @@ def isWinner(x, nums):
     prime = []
     count = 0
     look = {}
+    if x < 1:
+        return None
     for n in nums:
         playing.append(n)
 
     for y in playing:
-        for j in range(1, y + 1):
+        for j in range(0, y + 1):
             if y not in look:
                 look[y] = []
             look[y].append(j)
