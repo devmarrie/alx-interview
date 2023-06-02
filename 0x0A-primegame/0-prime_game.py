@@ -16,7 +16,7 @@ def isWinner(x, nums):
     prime = []
     count = 0
     look = {}
-    if x < 1:
+    if x < 1 or nums[0] == 0:
         return None
     for n in nums:
         playing.append(n)
