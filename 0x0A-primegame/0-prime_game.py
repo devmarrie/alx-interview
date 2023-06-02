@@ -29,15 +29,16 @@ def isWinner(x, nums):
 
     if count <= x:
         for play in playing:
-            vals = look[play]
-            count += 1
-            for num in vals:
-                if num > 1:
-                    for i in range(2, num):
-                        if (num % i) == 0:
-                            break
-                        else:
-                            prime.append(num)
+            if play in look:
+                vals = look[play]
+                count += 1
+                for num in vals:
+                    if num > 1:
+                        for i in range(2, num):
+                            if (num % i) == 0:
+                                break
+                            else:
+                                prime.append(num)
 
     for weh in prime:
         odd_index = prime.index(weh)
